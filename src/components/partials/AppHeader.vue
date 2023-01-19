@@ -1,7 +1,7 @@
 <script>
 import Navbar from '../Navbar.vue';
 export default {
-    name: 'Header',
+    name: 'AppHeader',
     components: {
         Navbar
     }

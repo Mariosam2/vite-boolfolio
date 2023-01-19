@@ -1,17 +1,19 @@
 <script>
-import Header from './components/partials/Header.vue';
-import Footer from './components/partials/Footer.vue';
+import AppHeader from './components/partials/AppHeader.vue';
+import AppFooter from './components/partials/AppFooter.vue';
+import AppMain from './components/partials/AppMain.vue';
 export default {
   name: 'App',
   components: {
-    Header, Footer
+    AppHeader, AppFooter, AppMain
   }
 }
 </script>
 
 <template>
-  <Header></Header>
-  <Footer></Footer>
+  <app-header></app-header>
+  <app-main></app-main>
+  <app-footer></app-footer>
 </template>
 
 <style lang="scss">
