@@ -16,9 +16,16 @@ export default {
                 <h4 class="card-title">{{ project.title }}</h4>
                 <p class="card-text">{{ project.description }}</p>
             </div>
-            <div class="card-footer d-flex">
-                <p class="card-text">{{ project.types }}</p>
-                <p class="card-text">{{ project.technologies }}</p>
+            <div class="card-footer d-flex justify-content-between">
+                <p class="card-text m-0" v-if="project.type"><strong>Type:</strong> {{ project.type.name }}</p>
+                <p class="card-text m-0" v-else><strong>Type:</strong> <span>None</span> </p>
+                <p class="card-text m-0" v-if="project.technologies.length > 0">
+                    <strong>Technologies: </strong>
+                    <span v-for="(technology, i) in project.technologies">
+                        {{ !(i === project.technologies.length - 1) ? technology.name + ', ' : technology.name}}
+                    </span>
+                </p>
+                <p class="card-text m-0" v-else><strong>Technologies:</strong> <span>None</span> </p>
             </div>
         </div>
     </div>
