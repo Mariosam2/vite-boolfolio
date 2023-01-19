@@ -1,21 +1,17 @@
 <script>
+import Header from './components/partials/Header.vue';
+import Footer from './components/partials/Footer.vue';
 export default {
-  data() {
-    return {
-      message: 'Hello Vite + Vue',
-    }
-  },
-  methods: {
-
-  },
-  mounted() {
-
+  name: 'App',
+  components: {
+    Header, Footer
   }
 }
 </script>
 
 <template>
-  <div>{{ message }}</div>
+  <Header></Header>
+  <Footer></Footer>
 </template>
 
 <style lang="scss">
