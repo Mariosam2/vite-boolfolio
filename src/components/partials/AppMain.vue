@@ -47,7 +47,7 @@ export default {
 </script>
 <template>
     <main id="site_main">
-        <div class="container pt-5 min-vh-100">
+        <div class="container pt-5 min-vh-100 d-flex flex-column justify-content-center">
             <div class="row row-cols-1 row-cols-md-3 g-4">
                 <ProjectCard v-for="project in projects" :project="project"></ProjectCard>
             </div>
