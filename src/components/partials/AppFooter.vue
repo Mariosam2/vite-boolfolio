@@ -4,7 +4,7 @@ export default {
 }
 </script>
 <template>
-    <footer id="site_footer" class="ms_footer">
+    <footer id="site_footer" class="bg_primary">
         <div class="container">
             <div class="d-flex flex-wrap justify-content-between align-items-center py-4  border-top">
                 <div class="col-md-4 d-flex align-items-center">
@@ -48,7 +48,5 @@ export default {
 
 </template>
 <style lang="scss" scoped>
-.ms_footer {
-    background-color: #e3f2fd;
-}
+
 </style>

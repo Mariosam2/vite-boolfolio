@@ -4,9 +4,9 @@ export default {
 }
 </script>
 <template>
-    <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary ms_nav">
+    <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary bg_primary">
         <div class="container">
-            <a class="navbar-brand text-muted d-flex align-items-center" href="#">
+            <a class="navbar-brand text-secondary d-flex align-items-center" href="#">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                     class="bi bi-wallet2 ms_wallet" viewBox="0 0 16 16">
                     <path
@@ -45,10 +45,6 @@ export default {
     </nav>
 </template>
 <style lang="scss" scoped>
-.navbar.ms_nav {
-    background-color: #e3f2fd;
-}
-
 .ms_wallet {
     width: 32px;
     height: auto;
