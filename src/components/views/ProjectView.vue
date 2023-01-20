@@ -40,7 +40,8 @@ export default {
     <div class="container min-vh-100 pt-5" v-if="!loading">
         <div class="row">
             <div class="col-12 col-md-8">
-                <img class="img-fluid" :src="'/' + project.img" :alt="project.slug">
+                <img style="width: 100%; max-height: 500px; object-fit: cover" :src="'/' + project.img"
+                    :alt="project.slug">
                 <div class="content pb-4 pt-2">
                     <h2>{{ project.title }}</h2>
                     <p class="py-2">{{ project.description }}</p>
@@ -53,6 +54,8 @@ export default {
                             </span>
                         </p>
                         <p v-else><strong>Technologies:</strong> <span>None</span></p>
+                        <router-link class="btn bg_primary d-block w-25 ms-auto" :to="{ name: 'projects' }">Back to
+                            projects</router-link>
                     </div>
                 </div>
             </div>
