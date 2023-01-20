@@ -7,7 +7,6 @@ export default {
         return {
             baseURL: 'http://127.0.0.1:8000/api',
             loading: true,
-            err: null,
             project: null,
         }
     },
@@ -19,13 +18,23 @@ export default {
                     if (resp.data.success) {
                         this.project = resp.data.result[0];
                         this.loading = false;
+                    } else {
+                        // 404 redirect
                     }
 
 
                 })
-                .catch(err => {
-                    //console.log(err)
-                    this.err = err.message
+                .catch(error => {
+                    //console.log(err);
+                    if (error.response) {
+                        // The request was made and the server responded with a status code
+                        // that falls out of the range of 2xx
+                        console.log(error.response.data);
+                        console.log(error.response.status);
+                        console.log(error.response.headers);
+                    } else {
+                        console.log(error.message);
+                    }
                     this.loading = false;
                 })
         }

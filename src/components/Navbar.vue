@@ -1,6 +1,11 @@
 <script>
 export default {
-    name: 'Navbar'
+    name: 'Navbar',
+    computed: {
+        currentRouteName() {
+            return this.$route.name;
+        }
+    }
 }
 </script>
 <template>
@@ -22,12 +27,13 @@ export default {
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0 ">
                     <li class="nav-item">
-                        <router-link class="nav-link fw-semibold" aria-current="page"
-                            :to="{ name: 'home' }">Home</router-link>
+                        <router-link class="nav-link fw-semibold" :class="currentRouteName === 'home' ? 'active' : ''"
+                            aria-current="page" :to="{ name: 'home' }">Home</router-link>
                     </li>
                     <li class="nav-item">
-                        <router-link class="nav-link fw-semibold" aria-current="page"
-                            :to="{ name: 'projects' }">Projects</router-link>
+                        <router-link class="nav-link fw-semibold"
+                            :class="currentRouteName === 'projects' || currentRouteName === 'project' ? 'active' : ''"
+                            aria-current="page" :to="{ name: 'projects' }">Projects</router-link>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"

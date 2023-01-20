@@ -10,7 +10,6 @@ export default {
         return {
             baseURL: 'http://127.0.0.1:8000/api',
             loading: true,
-            err: null,
             projects: null,
             currentPage: 1,
             prevPageUrl: null,
@@ -21,18 +20,39 @@ export default {
         getProjects(url) {
             axios.get(url)
                 .then(resp => {
-                    //console.log(resp.data.result);
-                    this.projects = resp.data.result.data;
-                    this.currentPage = resp.data.result.current_page;
-                    this.prevPageUrl = resp.data.result.prev_page_url;
-                    this.nextPageUrl = resp.data.result.next_page_url;
-                    this.loading = false;
+                    if (resp.data.success) {
+                        //console.log(resp.data.result);
+                        //console.log(resp.status)
+                        this.projects = resp.data.result.data;
+                        this.currentPage = resp.data.result.current_page;
+                        this.prevPageUrl = resp.data.result.prev_page_url;
+                        this.nextPageUrl = resp.data.result.next_page_url;
+                        this.loading = false;
+                    } else {
+                        // 404 redirect
+                        this.loading = false;
+                        this.$router.push({ name: 'notfound', params: { status: 404, message: 'Ops! Something went wrong...' } })
+
+
+                    }
+
 
                 })
-                .catch(err => {
+                .catch(error => {
                     //console.log(err);
-                    this.err = err.message
                     this.loading = false;
+                    if (error.response) {
+                        // The request was made and the server responded with a status code
+                        // that falls out of the range of 2xx
+                        console.log(error.response.data);
+                        console.log(error.response.status);
+                        console.log(error.response.headers);
+                        this.$router.push({ name: 'notfound', params: { status: error.response.status, message: error.response.data.message } })
+                    } else {
+                        console.log(error.message);
+                        this.$router.push({ name: 'notfound', params: { status: 404, message: error.message } })
+                    }
+
                 })
         },
         prevPage(url) {
