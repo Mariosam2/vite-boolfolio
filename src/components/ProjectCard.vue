@@ -22,9 +22,9 @@ export default {
 }
 </script>
 <template>
-    <div class="col" v-if="project != null">
+    <div class="col">
         <div class="card ms_card">
-            <img class="card-img-top" :src="project.img" alt="Title">
+            <img class="card-img-top" :src="'/' + project.img" :alt="project.slug">
             <div class="card-body">
                 <h4 class="card-title">{{ project.title }}</h4>
                 <p class="card-text">{{ trimDescription + '...'}}
@@ -40,7 +40,8 @@ export default {
                 <p class="card-text m-0 py-2" v-else><strong>Technologies:</strong> <span>None</span> </p>
             </div>
             <div class="card-footer bg-secondary d-flex justify-content-between">
-                <router-link class="btn bg_primary d-block ms-auto" :to="{ name: 'projects' }">More
+                <router-link class="btn bg_primary d-block ms-auto"
+                    :to="{ name: 'project', params: { slug: project.slug } }">More
                     details</router-link>
 
             </div>

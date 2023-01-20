@@ -10,6 +10,7 @@ export default {
         return {
             baseURL: 'http://127.0.0.1:8000/api',
             loading: true,
+            err: null,
             projects: null,
             currentPage: 1,
             prevPageUrl: null,
@@ -29,7 +30,8 @@ export default {
 
                 })
                 .catch(err => {
-                    console.log(err);
+                    //console.log(err);
+                    this.err = err.message
                     this.loading = false;
                 })
         },
