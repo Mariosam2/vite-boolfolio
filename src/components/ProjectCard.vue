@@ -14,9 +14,7 @@ export default {
             return this.project.description = this.project.description.slice(0, 100);
         }
     },
-    mounted() {
 
-    }
 
 
 
@@ -31,17 +29,20 @@ export default {
                 <h4 class="card-title">{{ project.title }}</h4>
                 <p class="card-text">{{ trimDescription + '...'}}
                 </p>
-            </div>
-            <div class="card-footer d-flex justify-content-between">
-                <p class="card-text m-0 mx-2" v-if="project.type"><strong>Type:</strong> {{ project.type.name }}</p>
-                <p class="card-text m-0 mx-2" v-else><strong>Type:</strong> <span>None</span> </p>
-                <p class="card-text m-0 mx-2" v-if="project.technologies.length > 0">
+                <p class="card-text m-0 py-2" v-if="project.type"><strong>Type:</strong> {{ project.type.name }}</p>
+                <p class="card-text m-0 py-2" v-else><strong>Type:</strong> <span>None</span> </p>
+                <p class="card-text m-0 py-2" v-if="project.technologies.length > 0">
                     <strong>Technologies: </strong>
                     <span v-for="(technology, i) in project.technologies">
                         {{ !(i === project.technologies.length - 1) ? technology.name + ', ' : technology.name}}
                     </span>
                 </p>
-                <p class="card-text m-0 mx-2" v-else><strong>Technologies:</strong> <span>None</span> </p>
+                <p class="card-text m-0 py-2" v-else><strong>Technologies:</strong> <span>None</span> </p>
+            </div>
+            <div class="card-footer bg-secondary d-flex justify-content-between">
+                <router-link class="btn bg_primary d-block ms-auto" :to="{ name: 'projects' }">More
+                    details</router-link>
+
             </div>
         </div>
     </div>

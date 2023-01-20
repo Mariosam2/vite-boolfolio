@@ -29,9 +29,6 @@ export default {
     border-radius: 0;
     border: 1px solid #6c757d;
 
-    &:hover {
-        background-color: #bddff8;
 
-    }
 }
 </style>
