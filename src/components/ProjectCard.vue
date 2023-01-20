@@ -3,18 +3,34 @@ export default {
     name: 'ProjectCard',
     props: {
         project: Object
+    },
+    data() {
+        return {
+            string: 'dughysauhgdsabhjgdabhjs'
+        }
+    },
+    computed: {
+        trimDescription() {
+            return this.project.description = this.project.description.slice(0, 100);
+        }
+    },
+    mounted() {
+
     }
+
+
 
 
 }
 </script>
 <template>
-    <div class="col">
+    <div class="col" v-if="project != null">
         <div class="card ms_card">
             <img class="card-img-top" :src="project.img" alt="Title">
             <div class="card-body">
                 <h4 class="card-title">{{ project.title }}</h4>
-                <p class="card-text">{{ project.description }}</p>
+                <p class="card-text">{{ trimDescription + '...'}}
+                </p>
             </div>
             <div class="card-footer d-flex justify-content-between">
                 <p class="card-text m-0 mx-2" v-if="project.type"><strong>Type:</strong> {{ project.type.name }}</p>
