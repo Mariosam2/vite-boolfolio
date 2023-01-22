@@ -23,7 +23,7 @@ const myRouter = router.createRouter({
             component: Project
         },
         {
-            path: '/:pathMatch(.*)*/:status/:message',
+            path: '/:pathMatch(.*)*',
             name: 'notfound',
             component: NotFound
         },

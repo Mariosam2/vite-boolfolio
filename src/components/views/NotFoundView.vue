@@ -3,8 +3,8 @@ export default {
     name: 'NotFoundView',
     data() {
         return {
-            statusCode: this.$route.status || 404,
-            errorMessage: this.$route.message || 'Ops! Something went wrong...',
+            statusCode: 404,
+            errorMessage: 'Ops! Something went wrong...',
         }
     }
 }

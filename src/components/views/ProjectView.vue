@@ -20,22 +20,19 @@ export default {
                         this.loading = false;
                     } else {
                         // 404 redirect
+                        this.loading = false;
+                        this.$router.push({ name: 'notfound' })
+
                     }
 
 
                 })
-                .catch(error => {
-                    //console.log(err);
-                    if (error.response) {
-                        // The request was made and the server responded with a status code
-                        // that falls out of the range of 2xx
-                        console.log(error.response.data);
-                        console.log(error.response.status);
-                        console.log(error.response.headers);
-                    } else {
-                        console.log(error.message);
-                    }
+                .catch(err => {
+                    console.log(err);
                     this.loading = false;
+                    this.$router.push({ name: 'notfound' })
+
+
                 })
         }
     },

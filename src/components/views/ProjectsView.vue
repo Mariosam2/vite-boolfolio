@@ -31,27 +31,17 @@ export default {
                     } else {
                         // 404 redirect
                         this.loading = false;
-                        this.$router.push({ name: 'notfound', params: { status: 404, message: 'Ops! Something went wrong...' } })
+                        this.$router.push({ name: 'notfound' })
 
 
                     }
 
 
                 })
-                .catch(error => {
-                    //console.log(err);
+                .catch(err => {
+                    console.log(err);
                     this.loading = false;
-                    if (error.response) {
-                        // The request was made and the server responded with a status code
-                        // that falls out of the range of 2xx
-                        console.log(error.response.data);
-                        console.log(error.response.status);
-                        console.log(error.response.headers);
-                        this.$router.push({ name: 'notfound', params: { status: error.response.status, message: error.response.data.message } })
-                    } else {
-                        console.log(error.message);
-                        this.$router.push({ name: 'notfound', params: { status: 404, message: error.message } })
-                    }
+                    this.$router.push({ name: 'notfound' })
 
                 })
         },
