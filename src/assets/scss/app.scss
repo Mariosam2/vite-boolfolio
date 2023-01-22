@@ -1,20 +1,73 @@
+:root {
+    --primary-color: #e3f2fd;
+    --primary-darker: #bddff8;
+    --secondary-color: #6c757d;
+    --muted-color: #7c838a;
+    --text-primary: #000000;
+}
+
+[data-theme="dark"] {
+    --primary-color: #404040;
+    --primary-darker: #181818;
+    --secondary-color: #bddff8;
+    --muted-color: #efefef;
+    --bg-dark: #181818;
+    --text-primary: #ffffff;
+    --text-secondary: #e3f2fd;
+}
+
+
 //Utility
+
+.text_primary {
+    color: var(--text-primary) !important;
+}
+
+.text_secondary {
+    color: var(--secondary-color) !important;
+}
+
+.text_secondary.active {
+    color: var(--text-primary) !important;
+}
+
+.text_muted {
+    color: var(--muted-color) !important;
+}
+
+.card.ms_card.bg_primary {
+    background-color: var(--primary-color);
+}
 
 .bg_primary,
 .btn.bg_primary {
-    background-color: #e3f2fd;
+    background-color: var(--primary-color);
 
 
 }
 
+.bg_primary_darker {
+    background-color: var(--primary-darker);
+}
+
+.bg_dark {
+    background-color: var(--bg-dark);
+}
+
 .btn.bg_primary {
+    color: var(--text-primary);
+
     &:hover {
         &:hover {
-            background-color: #bddff8;
+            background-color: var(--primary-darker);
+            color: var(--text-secondary)
         }
     }
 }
 
+.card-footer.bg_secondary {
+    background-color: var(--secondary-color);
+}
 
 .ms_icon {
     width: 30px;

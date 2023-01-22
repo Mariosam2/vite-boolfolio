@@ -6,18 +6,18 @@ export default {
 <template>
     <footer id="site_footer" class="bg_primary">
         <div class="container">
-            <div class="d-flex flex-wrap justify-content-between align-items-center py-4  border-top">
+            <div class="d-flex flex-wrap justify-content-between align-items-center py-4 ">
                 <div class="col-md-4 d-flex align-items-center">
-                    <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+                    <a href="/" class="mb-3 me-2 mb-md-0 text_secondary text-decoration-none lh-1">
                         <svg class="bi" width="30" height="24">
                             <use xlink:href="#bootstrap"></use>
                         </svg>
                     </a>
-                    <span class="mb-3 mb-md-0 text-muted">© 2022 Company, Inc</span>
+                    <span class="mb-3 mb-md-0 text_secondary">© 2022 Company, Inc</span>
                 </div>
 
                 <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-                    <li class="ms-3"><a class="text-muted" href="#">
+                    <li class="ms-3"><a class="text_secondary" href="#">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                 class="bi bi-twitter" viewBox="0 0 16 16">
                                 <path
@@ -25,7 +25,7 @@ export default {
                             </svg>
                         </a>
                     </li>
-                    <li class="ms-3"><a class="text-muted" href="#">
+                    <li class="ms-3"><a class="text_secondary" href="#">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                 class="bi bi-instagram" viewBox="0 0 16 16">
                                 <path
@@ -33,7 +33,7 @@ export default {
                             </svg>
                         </a>
                     </li>
-                    <li class="ms-3"><a class="text-muted" href="#">
+                    <li class="ms-3"><a class="text_secondary" href="#">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                 class="bi bi-facebook" viewBox="0 0 16 16">
                                 <path
