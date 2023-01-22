@@ -7,7 +7,6 @@ export default {
         return {
             baseURL: 'http://127.0.0.1:8000/api',
             loading: true,
-            err: null,
             project: null,
         }
     },
@@ -19,14 +18,21 @@ export default {
                     if (resp.data.success) {
                         this.project = resp.data.result[0];
                         this.loading = false;
+                    } else {
+                        // 404 redirect
+                        this.loading = false;
+                        this.$router.push({ name: 'notfound' })
+
                     }
 
 
                 })
                 .catch(err => {
-                    //console.log(err)
-                    this.err = err.message
+                    console.log(err);
                     this.loading = false;
+                    this.$router.push({ name: 'notfound' })
+
+
                 })
         }
     },

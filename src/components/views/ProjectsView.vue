@@ -10,7 +10,6 @@ export default {
         return {
             baseURL: 'http://127.0.0.1:8000/api',
             loading: true,
-            err: null,
             projects: null,
             currentPage: 1,
             prevPageUrl: null,
@@ -21,18 +20,29 @@ export default {
         getProjects(url) {
             axios.get(url)
                 .then(resp => {
-                    //console.log(resp.data.result);
-                    this.projects = resp.data.result.data;
-                    this.currentPage = resp.data.result.current_page;
-                    this.prevPageUrl = resp.data.result.prev_page_url;
-                    this.nextPageUrl = resp.data.result.next_page_url;
-                    this.loading = false;
+                    if (resp.data.success) {
+                        //console.log(resp.data.result);
+                        //console.log(resp.status)
+                        this.projects = resp.data.result.data;
+                        this.currentPage = resp.data.result.current_page;
+                        this.prevPageUrl = resp.data.result.prev_page_url;
+                        this.nextPageUrl = resp.data.result.next_page_url;
+                        this.loading = false;
+                    } else {
+                        // 404 redirect
+                        this.loading = false;
+                        this.$router.push({ name: 'notfound' })
+
+
+                    }
+
 
                 })
                 .catch(err => {
-                    //console.log(err);
-                    this.err = err.message
+                    console.log(err);
                     this.loading = false;
+                    this.$router.push({ name: 'notfound' })
+
                 })
         },
         prevPage(url) {
