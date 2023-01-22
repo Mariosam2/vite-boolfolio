@@ -68,7 +68,7 @@ export default {
         <div class="row row-cols-1 row-cols-md-3 g-4">
             <ProjectCard v-for="project in projects" :project="project"></ProjectCard>
         </div>
-        <div class="d-flex justify-content-center mt-5">
+        <div class="d-flex justify-content-center mt-5 text_primary">
             <div class="prev" v-if="prevPageUrl != null" @click="prevPage(prevPageUrl)">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                     class="bi bi-arrow-bar-left ms_icon " viewBox="0 0 16 16">

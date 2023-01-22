@@ -1,10 +1,11 @@
 <script>
 import axios from 'axios';
-
+import { store } from '../../store'
 export default {
     name: 'ProjectView',
     data() {
         return {
+            store,
             baseURL: 'http://127.0.0.1:8000/api',
             loading: true,
             project: null,
@@ -45,8 +46,8 @@ export default {
 <template>
     <div class="container min-vh-100 pt-5" v-if="!loading">
         <div class="row">
-            <div class="col-12 col-md-8">
-                <img style="width: 100%; max-height: 500px; object-fit: cover" :src="'/' + project.img"
+            <div class="col-12 col-md-8 text_primary ">
+                <img style="width: 100%; max-height: 500px; object-fit: cover" :src="store.getImage(project.img)"
                     :alt="project.slug">
                 <div class="content pb-4 pt-2">
                     <h2>{{ project.title }}</h2>
@@ -69,6 +70,13 @@ export default {
     </div>
     <div v-else>Loading... </div>
 </template>
-<style>
+<style lang="scss" scoped>
+.btn.bg_primary {
+    color: var(--text-primary);
 
+    &:hover {
+        background-color: var(--primary-color);
+        color: var(--text-secondary)
+    }
+}
 </style>
