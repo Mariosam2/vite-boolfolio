@@ -16,7 +16,7 @@ export default {
             } else {
                 app.removeAttribute('data-theme');
                 this.isDarkTheme = false;
-                window.localStorage.setItem('theme', 'light');
+                window.localStorage.removeItem('theme');
             }
 
         },
