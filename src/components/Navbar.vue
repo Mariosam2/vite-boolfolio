@@ -12,17 +12,28 @@ export default {
             if (app.getAttribute('data-theme') === null) {
                 app.setAttribute('data-theme', 'dark');
                 this.isDarkTheme = true;
+                window.localStorage.setItem('theme', 'dark');
             } else {
                 app.removeAttribute('data-theme');
                 this.isDarkTheme = false;
+                window.localStorage.setItem('theme', 'light');
             }
 
+        },
+        getTheme() {
+            if (window.localStorage.getItem('theme') === 'dark') {
+                app.setAttribute('data-theme', 'dark');
+                this.isDarkTheme = true;
+            }
         }
     },
     computed: {
         currentRouteName() {
             return this.$route.name;
         }
+    },
+    mounted() {
+        this.getTheme();
     }
 }
 </script>

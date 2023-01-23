@@ -14,7 +14,8 @@ export default {
             projects: null,
             currentPage: 1,
             prevPageUrl: null,
-            nextPageUrl: null
+            nextPageUrl: null,
+            errMsg: null
         }
     },
     methods: {
@@ -40,9 +41,9 @@ export default {
 
                 })
                 .catch(err => {
-                    console.log(err);
+                    console.log(err, err.response);
                     this.loading = false;
-                    this.$router.push({ name: 'notfound' })
+                    this.errMsg = err.message;
 
                 })
         },
@@ -86,8 +87,11 @@ export default {
             </div>
         </div>
     </div>
-    <div class="container pt-5 min-vh-100 d-flex justify-content-center align-items-center" v-if="loading">
+    <div class="container pt-5 min-vh-100 d-flex justify-content-center align-items-center" v-else-if="loading">
         <h2>Loading...</h2>
+    </div>
+    <div class="min-vh-100 d-flex justify-content-center align-items-center text_primary" v-else-if="errMsg.length > 0">
+        <h1>{{ this.errMsg }}</h1>
     </div>
 </template>
 <style lang="scss" scoped>

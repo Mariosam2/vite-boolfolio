@@ -8,6 +8,7 @@ export default {
             store,
             loading: true,
             project: null,
+            errMsg: null
         }
     },
     methods: {
@@ -30,7 +31,7 @@ export default {
                 .catch(err => {
                     console.log(err);
                     this.loading = false;
-                    this.$router.push({ name: 'notfound' })
+                    this.errMsg = err.message;
 
 
                 })
@@ -43,10 +44,11 @@ export default {
 </script>
 
 <template>
-    <div class="container min-vh-100 pt-5" v-if="!loading">
+    <div class="container min-vh-100 pt-5" v-if="project != null && !loading">
         <div class="row">
             <div class="col-12 col-md-8 text_primary ">
-                <img class="img-fluid" :src="store.getImage(project.img)" :alt="project.slug">
+                <img style="width: 100%; max-height:500px; object-fit: cover;" :src="store.getImage(project.img)"
+                    :alt="project.slug">
                 <div class="content pb-4 pt-2">
                     <h2>{{ project.title }}</h2>
                     <p class="py-2">{{ project.description }}</p>
@@ -59,16 +61,25 @@ export default {
                             </span>
                         </p>
                         <p v-else><strong>Technologies:</strong> <span>None</span></p>
-                        <router-link class="btn bg_primary d-block w-25 ms-auto" :to="{ name: 'projects' }">Back to
+                        <router-link class="btn bg_primary d-block  ms-sm-auto" :to="{ name: 'projects' }">Back to
                             projects</router-link>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div v-else>Loading... </div>
+    <div class="container pt-5 min-vh-100 d-flex justify-content-center align-items-center" v-else-if="loading">
+        <h2>Loading...</h2>
+    </div>
+    <div class="min-vh-100 d-flex justify-content-center align-items-center text_primary" v-else-if="errMsg.length > 0">
+        <h1>{{ this.errMsg }}</h1>
+    </div>
 </template>
 <style lang="scss" scoped>
+.btn.bg_primary {
+    width: 30%;
+}
+
 [data-theme="dark"] .btn.bg_primary {
     color: var(--text-primary);
 
