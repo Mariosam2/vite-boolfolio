@@ -4,8 +4,8 @@ export default {
 }
 </script>
 <template>
-    <div class="container min-vh-100 pt-5">
-        <div class="p-5 mb-4  mx-5 rounded-3 bg_primary">
+    <div class="container min-vh-100 pt-5 pb-4">
+        <div class=" p-3 p-md-5  mx-md-5 rounded-3 bg_primary">
             <div class="container-fluid py-4">
                 <h1 class="display-5 fw-bold text_secondary">Home Page</h1>
                 <p class="col-md-9 py-3 fs-5 text_muted">Loresm ipsum dolor sit amet consectetur, adipisicing elit.

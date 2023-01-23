@@ -6,7 +6,6 @@ export default {
     data() {
         return {
             store,
-            baseURL: 'http://127.0.0.1:8000/api',
             loading: true,
             project: null,
         }
@@ -38,7 +37,7 @@ export default {
         }
     },
     mounted() {
-        this.getProject(this.baseURL + '/projects/' + this.$route.params.slug)
+        this.getProject(this.store.apiURL + '/projects/' + this.$route.params.slug)
     }
 }
 </script>
@@ -47,8 +46,7 @@ export default {
     <div class="container min-vh-100 pt-5" v-if="!loading">
         <div class="row">
             <div class="col-12 col-md-8 text_primary ">
-                <img style="width: 100%; max-height: 500px; object-fit: cover" :src="store.getImage(project.img)"
-                    :alt="project.slug">
+                <img class="img-fluid" :src="store.getImage(project.img)" :alt="project.slug">
                 <div class="content pb-4 pt-2">
                     <h2>{{ project.title }}</h2>
                     <p class="py-2">{{ project.description }}</p>
@@ -71,7 +69,7 @@ export default {
     <div v-else>Loading... </div>
 </template>
 <style lang="scss" scoped>
-.btn.bg_primary {
+[data-theme="dark"] .btn.bg_primary {
     color: var(--text-primary);
 
     &:hover {

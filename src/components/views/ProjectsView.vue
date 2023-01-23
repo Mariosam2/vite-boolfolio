@@ -1,6 +1,7 @@
 <script>
 import ProjectCard from '../ProjectCard.vue';
 import axios from 'axios';
+import { store } from '../../store'
 export default {
     name: 'ProjectsView',
     components: {
@@ -8,7 +9,7 @@ export default {
     },
     data() {
         return {
-            baseURL: 'http://127.0.0.1:8000/api',
+            store,
             loading: true,
             projects: null,
             currentPage: 1,
@@ -55,17 +56,16 @@ export default {
 
     },
     mounted() {
-        this.getProjects(this.baseURL + '/projects')
+        this.getProjects(this.store.apiURL + '/projects')
 
 
     }
 }
 </script>
 <template>
-    <div class="container pt-5 min-vh-100 d-flex flex-column justify-content-center"
-        v-if="projects != null && !loading">
+    <div class="container ms_container min-vh-100 d-flex flex-column" v-if="projects != null && !loading">
 
-        <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4">
             <ProjectCard v-for="project in projects" :project="project"></ProjectCard>
         </div>
         <div class="d-flex justify-content-center mt-5 text_primary">
@@ -90,6 +90,9 @@ export default {
         <h2>Loading...</h2>
     </div>
 </template>
-<style>
-
+<style lang="scss" scoped>
+.container.ms_container {
+    padding-top: 8rem;
+    padding-bottom: 4rem;
+}
 </style>

@@ -53,5 +53,6 @@ export default {
 <style lang="scss" scoped>
 .ms_card {
     height: 100%;
+    border: none;
 }
 </style>
