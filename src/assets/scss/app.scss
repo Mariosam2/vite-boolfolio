@@ -7,6 +7,7 @@
     --secondary-color: #6c757d;
     --muted-color: #7c838a;
     --text-primary: #000000;
+    --switch-dark: #ffffff;
 }
 
 [data-theme="dark"] {
@@ -17,6 +18,7 @@
     --bg-dark: #181818;
     --text-primary: #ffffff;
     --text-secondary: #e3f2fd;
+    --switch-dark: #404040;
 }
 
 * {
@@ -37,6 +39,7 @@
 .text_secondary.active {
     color: var(--text-primary) !important;
 }
+
 
 .text_muted {
     color: var(--muted-color) !important;
@@ -70,6 +73,10 @@
             color: var(--text-secondary)
         }
     }
+}
+
+.switch_dark {
+    background-color: var(--switch-dark);
 }
 
 .card-footer.bg_secondary {

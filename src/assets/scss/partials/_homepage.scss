@@ -4,7 +4,7 @@
     line-height: 0;
 
     path {
-        fill: white;
+        fill: var(--switch-dark);
     }
 }
 
@@ -16,19 +16,45 @@
     margin-inline: 0.5rem;
 }
 
-.banner {
-    height: 500px;
-    background: url(../images/banner.avif) no-repeat center;
+.projects-banner {
+    background: url(../images/banner.webp) no-repeat center;
     background-size: cover;
     position: relative;
+    transition: all 0.3s ease-in;
 
-    .banner-layover {
+
+    .projects-banner-layover {
         position: absolute;
         left: 0;
         right: 0;
         bottom: 0;
         top: 0;
         background-color: rgba(#000000, 0.5);
+        transition: all 0.3s ease-in;
     }
 
+    .content {
+        position: relative;
+        z-index: 99999;
+    }
+
+}
+
+.projects-banner::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: inherit;
+    transition: inherit;
+}
+
+.projects-banner:hover::before {
+    transform: scaleY(1.05);
+}
+
+.projects-banner:hover .projects-banner-layover {
+    transform: scaleY(1.05);
 }
