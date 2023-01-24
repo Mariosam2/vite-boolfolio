@@ -4,7 +4,7 @@ export default {
 }
 </script>
 <template>
-    <main id="site_main" class="bg_dark">
+    <main id="site_main">
         <router-view></router-view>
     </main>
 </template>

@@ -1,0 +1,34 @@
+.custom-shape-divider-bottom-1674557407 {
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+
+    path {
+        fill: white;
+    }
+}
+
+.avatar {
+    max-width: 30%;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-inline: 0.5rem;
+}
+
+.banner {
+    height: 500px;
+    background: url(../images/banner.avif) no-repeat center;
+    background-size: cover;
+    position: relative;
+
+    .banner-layover {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        background-color: rgba(#000000, 0.5);
+    }
+
+}

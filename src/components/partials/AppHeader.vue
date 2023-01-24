@@ -1,10 +1,12 @@
 <script>
 import Navbar from '../Navbar.vue';
+
 export default {
     name: 'AppHeader',
     components: {
         Navbar
-    }
+    },
+
 }
 </script>
 <template>
@@ -12,6 +14,6 @@ export default {
         <Navbar></Navbar>
     </header>
 </template>
-<style>
+<style lang="scss" scoped>
 
 </style>
