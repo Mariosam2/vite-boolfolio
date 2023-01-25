@@ -57,6 +57,11 @@ export default {
                             :class="currentRouteName === 'projects' || currentRouteName === 'project' ? 'active' : ''"
                             aria-current="page" :to="{ name: 'projects' }">Projects</router-link>
                     </li>
+                    <li class="nav-item">
+                        <router-link class="nav-link fw-semibold text_secondary"
+                            :class="currentRouteName === 'contact' ? 'active' : ''" aria-current="page"
+                            :to="{ name: 'contact' }">Contact Me</router-link>
+                    </li>
                     <li class="nav-item d-flex align-items-center text_primary ">
                         <label>
                             <input class="form-check-input d-none" type="checkbox" @input="switchTheme()">

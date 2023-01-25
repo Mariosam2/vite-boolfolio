@@ -169,7 +169,7 @@ export default {
                             molestiae
                             necessitatibus, possimus tempore. Iste unde provident magnam voluptatibus! Explicabo!</p>
                         <router-link class="btn bg_primary jumbo_button btn-lg" type="button"
-                            :to="{ name: 'home' }">Contact me</router-link>
+                            :to="{ name: 'contact' }">Contact me</router-link>
                     </div>
                 </div>
             </div>
