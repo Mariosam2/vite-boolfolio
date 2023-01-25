@@ -17,20 +17,48 @@
 }
 
 .projects-banner {
-    background: url(../images/banner.webp) no-repeat center;
-    background-size: cover;
+    overflow: hidden;
+    cursor: pointer;
     position: relative;
-    transition: all 0.3s ease-in;
+
+    &:hover .projects-banner-child {
+        scale: 1.05;
+    }
+
+    &:hover .projects-banner-child:before {
+        display: block;
+    }
+
+    .projects-banner-child {
+        height: 100%;
+        width: 100%;
+        position: relative;
+        background: url(../images/banner.webp) no-repeat center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        transition: all .3s ease-in;
+
+        .layover {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(black, 0.5);
+        }
+
+        &:before {
+            content: "";
+            display: none;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
 
 
-    .projects-banner-layover {
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        top: 0;
-        background-color: rgba(#000000, 0.5);
-        transition: all 0.3s ease-in;
+        }
+
     }
 
     .content {
@@ -38,23 +66,4 @@
         z-index: 99999;
     }
 
-}
-
-.projects-banner::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: inherit;
-    transition: inherit;
-}
-
-.projects-banner:hover::before {
-    transform: scaleY(1.05);
-}
-
-.projects-banner:hover .projects-banner-layover {
-    transform: scaleY(1.05);
 }

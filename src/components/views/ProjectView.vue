@@ -76,11 +76,12 @@ export default {
             </div>
         </div>
     </div>
-    <div class="container pt-5 min-vh-100 d-flex justify-content-center align-items-center" v-else-if="loading">
+    <div class="container pt-5 min-vh-100 d-flex justify-content-center align-items-center text_primary"
+        v-else-if="loading">
         <h2>Loading...</h2>
     </div>
     <div class="min-vh-100 d-flex justify-content-center align-items-center text_primary" v-else-if="errMsg.length > 0">
-        <h1>{{ this.errMsg }}</h1>
+        <h1>{{ errMsg }}</h1>
     </div>
 </template>
 <style lang="scss" scoped>
