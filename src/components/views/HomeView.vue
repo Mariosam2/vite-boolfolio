@@ -32,7 +32,7 @@ export default {
                     <div class="col-12 col-lg-5 d-lg-none my-4 d-flex justify-content-center">
                         <img class="avatar" :src="store.getImageUrl('avatar.jpeg')" alt="">
                     </div>
-                    <div class="col-12 col-lg-7  d-flex flex-column p-4 p-lg-5">
+                    <div class="col-12 col-lg-8  d-flex flex-column p-4 p-lg-5">
                         <h1 class="text_secondary text-center text-lg-start me-3 mb-3">Ciao, sono Marco</h1>
                         <p class="text_muted text-center text-lg-start home_paragraph">Lorem ipsum dolor sit amet
                             consectetur
@@ -46,7 +46,7 @@ export default {
                             expedita explicabo, soluta molestias fugiat incidunt labore amet debitis architecto nesciunt
                             iusto placeat.</p>
                     </div>
-                    <div class="col-12 col-lg-5 d-none d-lg-block">
+                    <div class="col-12 col-lg-4 d-none d-lg-block">
                         <img class="avatar" :src="store.getImageUrl('avatar.jpeg')" alt="">
                     </div>
                 </div>
@@ -65,7 +65,7 @@ export default {
                 <div class="p-lg-3 p-md-5  mx-md-5 rounded-3">
                     <div class="container-fluid content py-4">
                         <h1 class="display-5  text_secondary">About me</h1>
-                        <p class="col-md-9 py-3 home_paragraph text_muted">Loresm ipsum dolor sit amet consectetur,
+                        <p class="col-lg-9 py-3 home_paragraph text_muted">Loresm ipsum dolor sit amet consectetur,
                             adipisicing
                             elit.
                             Soluta, neque.
@@ -150,7 +150,7 @@ export default {
                 <div class="p-lg-3 p-md-5  mx-md-5 rounded-3">
                     <div class="container-fluid content py-4">
                         <h1 class="display-5  text_secondary">Contact me</h1>
-                        <p class="col-md-9 py-3 home_paragraph text_muted">Loresm ipsum dolor sit amet consectetur,
+                        <p class="col-lg-9 py-3 home_paragraph text_muted">Loresm ipsum dolor sit amet consectetur,
                             adipisicing
                             elit.
                             Soluta, neque.
