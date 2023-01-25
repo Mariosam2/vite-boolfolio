@@ -14,13 +14,33 @@ export default {
             errMsg: '',
         }
     },
+    watch: {
+        name() {
+            if (this.errors) {
+                this.errors.name = null;
+            }
+
+        },
+        email() {
+            if (this.errors) {
+                this.errors.email_address = null;
+
+            }
+        },
+        message() {
+            if (this.errors) {
+                this.errors.message = null;
+            }
+
+        }
+    },
     methods: {
         sendForm() {
             this.loading = true;
             this.errors = null;
             let contact = {
                 name: this.name,
-                email: this.email,
+                email_address: this.email,
                 message: this.message
             };
             axios.post(this.store.apiURL + '/contacts', contact)
@@ -29,8 +49,13 @@ export default {
                     if (!resp.data.success) {
                         this.errors = resp.data.errors;
                         this.loading = false;
+
+
+                    } else {
+                        //redirect to thankyou page
+                        this.loading = false;
                     }
-                    this.loading = false;
+
                 })
                 .catch(err => {
                     console.log(err);
