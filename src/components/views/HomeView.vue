@@ -221,6 +221,11 @@ export default {
 
 .projects-call-to-action:hover {
     text-decoration: underline;
+
+}
+
+.projects-call-to-action:hover .ms_arrow_right {
+    animation: .5s ease-in infinite alternate move-arrow;
 }
 
 .ms_arrow_right {
@@ -228,12 +233,28 @@ export default {
     height: auto;
     margin-inline: 0.5rem;
     position: relative;
-    transition: left 0.25s ease-out;
     left: 0;
 }
 
-.projects-call-to-action:hover .ms_arrow_right {
-    left: 20px;
+@keyframes move-arrow {
+    from {
+        left: 0rem;
+    }
 
+    25% {
+        left: 0.25rem;
+    }
+
+    50% {
+        left: 0.5rem;
+    }
+
+    75% {
+        left: 0.75rem;
+    }
+
+    to {
+        left: 1rem;
+    }
 }
 </style>
