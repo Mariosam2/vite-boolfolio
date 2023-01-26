@@ -53,6 +53,7 @@ export default {
 
                     } else {
                         //redirect to thankyou page
+                        this.$router.push({ name: 'thankyou' });
                         this.loading = false;
                     }
 
