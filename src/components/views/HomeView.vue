@@ -91,59 +91,68 @@ export default {
         </section>
 
         <section class="projects-banner">
-            <div class="projects-banner-layover"></div>
-            <div class="container pt-5 pb-4">
-                <div class="p-lg-3 p-md-5  mx-md-5 rounded-3">
-                    <div class="container-fluid content py-4">
-                        <div class="row">
-                            <div class="col-12 col-lg-8">
-                                <h1 class="display-5  text-white">My projects</h1>
-                                <p class="py-3 home_paragraph text-white">Loresm ipsum dolor sit amet consectetur,
-                                    adipisicing
-                                    elit.
-                                    Soluta, neque.
-                                    Iure
-                                    dolorum sint suscipit, expedita, nisi exercitationem tempora repudiandae vitae
-                                    dolorem
-                                    consectetur
-                                    sed earum aliquid saepe ab harum odit voluptatum modi nemo maxime commodi impedit.
-                                    Enim
-                                    perspiciatis, porro iure dolore aut qui quisquam eius. Libero, cupiditate. Maiores,
-                                    alias,
-                                    aliquid
-                                    tempore molestiae inventore quia similique aut doloremque voluptas eum sint nobis
-                                    fuga?
-                                    Aperiam
-                                    qui
-                                    autem accusantium ad deleniti repellat, laborum dignissimos. Ex sunt nihil aut fugit
-                                    neque
-                                    officiis
-                                    nostrum unde quas alias at ut mollitia, exercitationem id inventore quam laboriosam
-                                    optio
-                                    molestiae
-                                    necessitatibus, possimus tempore. Iste unde provident magnam voluptatibus!
-                                    Explicabo!
-                                </p>
+            <div class="projects-banner-child">
+                <div class="layover"></div>
+                <div class="container pt-5 pb-4">
+                    <div class="p-lg-3 p-md-5  mx-md-5 rounded-3">
+                        <div class="container-fluid content py-4">
+                            <div class="row">
+                                <div class="col-12 col-lg-8">
+                                    <h1 class="display-5  text-white">My projects</h1>
+                                    <p class="py-3 home_paragraph text-white">Loresm ipsum dolor sit amet consectetur,
+                                        adipisicing
+                                        elit.
+                                        Soluta, neque.
+                                        Iure
+                                        dolorum sint suscipit, expedita, nisi exercitationem tempora repudiandae vitae
+                                        dolorem
+                                        consectetur
+                                        sed earum aliquid saepe ab harum odit voluptatum modi nemo maxime commodi
+                                        impedit.
+                                        Enim
+                                        perspiciatis, porro iure dolore aut qui quisquam eius. Libero, cupiditate.
+                                        Maiores,
+                                        alias,
+                                        aliquid
+                                        tempore molestiae inventore quia similique aut doloremque voluptas eum sint
+                                        nobis
+                                        fuga?
+                                        Aperiam
+                                        qui
+                                        autem accusantium ad deleniti repellat, laborum dignissimos. Ex sunt nihil aut
+                                        fugit
+                                        neque
+                                        officiis
+                                        nostrum unde quas alias at ut mollitia, exercitationem id inventore quam
+                                        laboriosam
+                                        optio
+                                        molestiae
+                                        necessitatibus, possimus tempore. Iste unde provident magnam voluptatibus!
+                                        Explicabo!
+                                    </p>
+                                </div>
+                                <router-link
+                                    class="col-12 col-lg-4 projects-call-to-action text-white d-flex align-items-center fs-4 justify-content-end"
+                                    :to="{ name: 'projects' }">See my
+                                    projects
+                                    <span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="bi bi-arrow-right ms_arrow_right"
+                                            viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd"
+                                                d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+                                        </svg>
+                                    </span>
+                                </router-link>
                             </div>
-                            <router-link
-                                class="col-12 col-lg-4 projects-call-to-action text-white d-flex align-items-center fs-4 justify-content-end"
-                                :to="{ name: 'projects' }">See my
-                                projects
-                                <span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                        class="bi bi-arrow-right ms_arrow_right" viewBox="0 0 16 16">
-                                        <path fill-rule="evenodd"
-                                            d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
-                                    </svg>
-                                </span>
-                            </router-link>
+
+
+
                         </div>
-
-
-
                     </div>
                 </div>
             </div>
+
         </section>
         <section class="contact-me bg_primary">
             <div class="container pt-5 pb-4">
@@ -169,7 +178,7 @@ export default {
                             molestiae
                             necessitatibus, possimus tempore. Iste unde provident magnam voluptatibus! Explicabo!</p>
                         <router-link class="btn bg_primary jumbo_button btn-lg" type="button"
-                            :to="{ name: 'home' }">Contact me</router-link>
+                            :to="{ name: 'contact' }">Contact me</router-link>
                     </div>
                 </div>
             </div>
@@ -212,6 +221,11 @@ export default {
 
 .projects-call-to-action:hover {
     text-decoration: underline;
+
+}
+
+.projects-call-to-action:hover .ms_arrow_right {
+    animation: .5s ease-in infinite alternate move-arrow;
 }
 
 .ms_arrow_right {
@@ -219,12 +233,28 @@ export default {
     height: auto;
     margin-inline: 0.5rem;
     position: relative;
-    transition: left 0.25s ease-out;
     left: 0;
 }
 
-.projects-call-to-action:hover .ms_arrow_right {
-    left: 20px;
+@keyframes move-arrow {
+    from {
+        left: 0rem;
+    }
 
+    25% {
+        left: 0.25rem;
+    }
+
+    50% {
+        left: 0.5rem;
+    }
+
+    75% {
+        left: 0.75rem;
+    }
+
+    to {
+        left: 1rem;
+    }
 }
 </style>
