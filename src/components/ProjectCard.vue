@@ -8,7 +8,19 @@ export default {
     data() {
         return {
             store,
-            string: 'dughysauhgdsabhjgdabhjs'
+            firstImageSrc: null,
+        }
+    },
+    methods: {
+        getFirstImageFromMedia(media) {
+            //media will be json so we need to parse it
+            media = JSON.parse(media);
+            for (let i = 0; i < media.length; i++) {
+                if (media[i].type === 'image') {
+                    this.firstImageSrc = this.store.getImage(media[i].src);
+                    break;
+                }
+            }
         }
     },
     computed: {
@@ -16,6 +28,9 @@ export default {
             return this.project.description = this.project.description.slice(0, 100);
         }
     },
+    mounted() {
+        this.getFirstImageFromMedia(this.project.media);
+    }
 
 
 
@@ -27,7 +42,9 @@ export default {
     <div class="col">
         <div class="project rounded-2">
             <div class="project-layover rounded-2"></div>
-            <img class="project-img rounded-2" :src="store.getImage(project.img)" :alt="project.name">
+            <img class="project-img rounded-2"
+                :src="firstImageSrc !== null ? firstImageSrc : this.store.baseURL + '/storage/images/placeholder.webp'"
+                :alt="project.name">
             <router-link class="project-link" :to="{ name: 'project', params: { slug: project.slug } }">
                 More details...
             </router-link>
