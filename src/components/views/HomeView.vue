@@ -1,7 +1,7 @@
 <script>
 import { store } from '../../store'
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 export default {
     name: 'HomeView',
     data() {

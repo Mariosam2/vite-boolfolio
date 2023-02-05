@@ -8,7 +8,10 @@ export default {
             store,
             loading: true,
             project: null,
-            errMsg: null
+            errMsg: null,
+            currentMedia: 0,
+
+
         }
     },
     methods: {
@@ -35,20 +38,55 @@ export default {
 
 
                 })
-        }
+        },
+        next() {
+            if (this.currentMedia >= JSON.parse(this.project.media).length - 1) {
+                this.currentMedia = 0;
+            }
+            this.currentMedia++
+
+        },
+        prev() {
+            if (this.currentMedia < 0) {
+                this.currentMedia = JSON.parse(this.project.media).length - 1;
+            }
+            this.currentMedia++
+        },
+
+
     },
     mounted() {
         this.getProject(this.store.apiURL + '/projects/' + this.$route.params.slug)
+
+
     }
 }
 </script>
 
 <template>
-    <div class="container min-vh-100 pt-5" v-if="project != null && !loading">
+    <div class="project container min-vh-100 pt-5" v-if="project != null && !loading">
         <div class="row">
-            <div class="col-12 col-md-8 text_primary ">
-                <img style="width: 100%; max-height:500px; object-fit: cover;" :src="store.getImage(project.img)"
-                    :alt="project.slug">
+            <div class="col-12 col-md-7 text_primary ">
+                <div id="carouselExample" class="carousel slide ms_carousel">
+                    <div class="carousel-inner">
+                        <div v-for="(file, i) in JSON.parse(this.project.media)" class="carousel-item ms_slide"
+                            :class="i === currentMedia ? 'active' : ''">
+                            <img v-if="file.type === 'image'" :src="this.store.getImage(file.src)" class="d-block w-100"
+                                alt="...">
+                            <video controls>
+                                <source :src="this.store.getImage(file.src)" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                    <button class="ms_prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden" @click="prev">Previous</span>
+                    </button>
+                    <button class="ms_next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden" @click="next">Next</span>
+                    </button>
+                </div>
                 <div class="content pb-4 pt-2">
                     <h2 class="d-flex align-items-center">{{ project.title }}
                         <a href="https://github.com/Mariosam2/vite-boolfolio" class="ms-3 text_primary">
@@ -61,7 +99,7 @@ export default {
                     </h2>
                     <p class="py-2">{{ project.description }}</p>
                     <div>
-                        <p><strong>Type: </strong>{{ project.type.name }}</p>
+                        <p v-if="project.type !== null"><strong>Type: </strong>{{ project.type.name }}</p>
                         <p v-if="project.technologies.length > 0">
                             <strong>Technologies: </strong>
                             <span v-for="(technology, i) in project.technologies">
@@ -102,4 +140,48 @@ export default {
     width: 32px;
     height: auto;
 }
+
+.ms_slide {
+    height: 480px;
+
+    img,
+    video {
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.ms_carousel {
+    position: relative;
+
+    .ms_next,
+    .ms_prev {
+        position: absolute;
+        top: 50%;
+        border: none;
+        background-color: transparent;
+
+        span {
+            transition: scale 0.25s ease-out;
+
+            &:hover {
+                scale: 1.2;
+            }
+        }
+    }
+
+    .ms_next {
+        left: 100%;
+        translate: -100% -50%;
+    }
+
+    .ms_prev {
+        left: 0;
+        translate: 0 -50%;
+    }
+
+
+}
 </style>
+
+
