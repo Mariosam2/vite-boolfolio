@@ -75,14 +75,14 @@ export default {
             <h1>{{ errMsg }}</h1>
         </div>
         <div class="container ms_container min-vh-100 d-flex flex-column" v-else-if="projects != null && !loading">
-
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4">
+            <h1 class="mt-5 mb-4 text_secondary">My Projects</h1>
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4 mt-1">
                 <ProjectCard v-for="project in projects " :project="project"></ProjectCard>
             </div>
             <div class="load-more d-flex flex-column align-items-center fw-bold" @click="load()" v-if="nextPageUrl">
                 <span class="text_primary d-block mb-1">See More</span>
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                    class="bi bi-arrow-down ms_arrow-down" viewBox="0 0 16 16">
+                    class="bi bi-arrow-down ms_arrow-down text_primary" viewBox="0 0 16 16">
                     <path fill-rule="evenodd"
                         d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z" />
                 </svg>
@@ -118,7 +118,6 @@ export default {
 
 
     .container.ms_container {
-        padding-top: 8rem;
         padding-bottom: 8rem;
         position: relative;
 
@@ -147,6 +146,7 @@ export default {
                 width: 1.4rem;
                 height: auto;
                 position: relative;
+
             }
         }
     }
